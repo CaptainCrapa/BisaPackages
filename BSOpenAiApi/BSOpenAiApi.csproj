@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <Authors>Sandor Bito</Authors>
     <PackageProjectUrl>https://github.com/CaptainCrapa/BisaPackages</PackageProjectUrl>
+    <AssemblyVersion></AssemblyVersion>
   </PropertyGroup>
 
 </Project>
