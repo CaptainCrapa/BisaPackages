@@ -5,7 +5,6 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <Authors>Sandor Bito</Authors>
-    <PackageProjectUrl>https://github.com/CaptainCrapa/BisaPackages</PackageProjectUrl>
   </PropertyGroup>
 
 </Project>

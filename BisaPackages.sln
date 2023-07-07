@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BSOpenAiApi", "BSOpenAiApi\BSOpenAiApi.csproj", "{67185480-50A0-4491-9FE1-5A22EF2B71CD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleMessage", "SimpleMessage\SimpleMessage.csproj", "{CA3C1544-0CAE-40C6-BFBA-838F6A67C18A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{67185480-50A0-4491-9FE1-5A22EF2B71CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67185480-50A0-4491-9FE1-5A22EF2B71CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67185480-50A0-4491-9FE1-5A22EF2B71CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA3C1544-0CAE-40C6-BFBA-838F6A67C18A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA3C1544-0CAE-40C6-BFBA-838F6A67C18A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA3C1544-0CAE-40C6-BFBA-838F6A67C18A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA3C1544-0CAE-40C6-BFBA-838F6A67C18A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
