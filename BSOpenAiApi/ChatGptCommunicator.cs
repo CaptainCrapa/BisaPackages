@@ -1,14 +1,11 @@
 ﻿using BSOpenAiApi.OpenAiDataBuilders;
 using BSOpenAiApi.OpenAIModels;
-using System.Net.Http.Headers;
 using System.Security.Cryptography;
-using System.Text.Json;
-using System.Text;
 using System.Threading.Tasks.Dataflow;
 
 namespace BSOpenAiApi.BaseModel
 {
-    public class OpenAiCommunicator
+    public class ChatGptCommunicator
     {
         string ApiKey = "";
         string apiUrl = "";
@@ -21,7 +18,7 @@ namespace BSOpenAiApi.BaseModel
         /// <param name="apiKey"></param>
         /// <param name="apimodel"></param>
         /// <param name="apiUrl"></param>
-        public OpenAiCommunicator(string apiKey, GptModel apimodel, string apiUrl = "https://api.openai.com/v1/chat/completions")
+        public ChatGptCommunicator(string apiKey, GptModel apimodel, string apiUrl = "https://api.openai.com/v1/chat/completions")
         {
             ApiKey = apiKey;
             Messages = new List<OpenAiMessage>();
@@ -40,7 +37,7 @@ namespace BSOpenAiApi.BaseModel
          /// <param name="apiKey"></param>
          /// <param name="apimodel"></param>
          /// <param name="apiUrl"></param>
-        public OpenAiCommunicator(string apiKey, IChatGptAPIModel apimodel, string apiUrl = "https://api.openai.com/v1/chat/completions")
+        public ChatGptCommunicator(string apiKey, IChatGptAPIModel apimodel, string apiUrl = "https://api.openai.com/v1/chat/completions")
         {
             ApiKey = apiKey;
             Messages = new List<OpenAiMessage>();
@@ -125,54 +122,5 @@ namespace BSOpenAiApi.BaseModel
             Messages.Add(response.choices[0].message);
             return valasz;
         }
-    }
-    public class OpenAiApiConnection
-    {
-        private string API_URL;
-        private string apiKey;
-        private readonly HttpClient httpClient;
-        /// <summary>
-        /// Api Url beállítása
-        /// </summary>
-        /// <param name="url"></param>
-        public void SetApiUrl(string url) => this.API_URL = url;
-        /// <summary>
-        /// Api kulcs beállítása
-        /// </summary>
-        /// <param name="apiKey"></param>
-        public void SetApiKey(string apiKey) => this.apiKey = apiKey;
-        /// <summary>
-        /// Itt rakja össze a kommunikációhoz szükséges információkat.
-        /// </summary>
-        /// <param name="api_Key"></param>
-        /// <param name="api_url"></param>
-        /// <param name="HttpClientTimeOut"></param>
-        public OpenAiApiConnection(string api_Key, string api_url = "https://api.openai.com/v1/chat/completions", int HttpClientTimeOut = 200)
-        {
-            API_URL = api_url;
-            apiKey = api_Key;
-            httpClient = new HttpClient();
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
-            httpClient.Timeout = TimeSpan.FromSeconds(HttpClientTimeOut);
-        }
-        /// <summary>
-        /// A beküldött data object alapján POSTol a megadott apiURL-re..
-        /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
-        /// <exception cref="Exception"></exception>
-        public async Task<HttpResponseMessage> GetResponse(object data)
-        {
-            var content = new StringContent(JsonSerializer.Serialize(data), Encoding.UTF8, "application/json");
-            var response = await httpClient.PostAsync(API_URL, content);
-            if (!response.IsSuccessStatusCode)
-            {
-                var errorMessage = await response.Content.ReadAsStringAsync();
-                throw new Exception($"HIBA a válasznál: {response.StatusCode}\n{errorMessage}");
-            }
-            return response;
-        }
-
-
     }
 }
